@@ -1,15 +1,5 @@
 # Cluster Kubernetes com Terraform e AWS-EKS
-
-<!-- TOC -->
-
-- [open-tools](#open-tools)
-- [About](#about)
-
-<!-- TOC -->
-
-# About
-
-Repository with tools, charts, scripts and others developed by [Sensedia](https://www.sensedia.com) and shared with the community.
+# Repositório com ferramentas, gráficos, scripts e compartilhado com a comunidade.
 
 ```bash
 ├── CONTRIBUTING.md
@@ -23,7 +13,6 @@ Repository with tools, charts, scripts and others developed by [Sensedia](https:
 ├── terraform  # code about Terraform
 └── tutorials  # miscellaneous tutorials
 ```
-
 # Introdução
 
 Neste artigo iremos passar pelas boas práticas de como criar um cluster Kubernetes com Terraform e AWS-EKS, também conhecido por k8s (entenda o motivo aqui), utilizando o Terraform e o serviço EKS (Elastic Kubernetes Service) da AWS. Se você não sabe o que é Kubernetes, consulte o material Descomplicando o Kubernetes.
@@ -36,8 +25,7 @@ https://bit.ly/36iy82t
 
 https://aws.amazon.com/eks.
 
-Como uma forma de retribuir um pouco à comunidade de software livre, a Sensedia mantém um repositório no GitHub, chamado open-tools onde são publicados alguns scripts e ferramentas que utilizamos no dia a dia da operação de nossos serviços. Acreditamos que isso pode ajudar outras pessoas. Alguns dos comandos e código Terraform que vamos ver neste tutorial também estão publicados lá.
-
+Como uma forma de retribuir um pouco à comunidade de software livre, a Sensedia mantém um repositório no GitHub, chamado Terraform-AWS-EKS onde são publicados alguns scripts e ferramentas que utilizamos no dia a dia da operação de nossos serviços. Acreditamos que isso pode ajudar outras pessoas. Alguns dos comandos e código Terraform que vamos ver neste tutorial também estão publicados lá.
 # Pré-requisitos
 
 Neste tutorial será criado um cluster Kubernetes utilizando o EKS 1.17.x. Veja as novidades desta versão nos links a seguir:
@@ -56,15 +44,15 @@ Para executar os passos deste tutorial você precisa utilizar alguma distribuiç
 
 É necessário ter instalado o aws-cli versão 1.16.x ou superior. Também é necessário configurar as credenciais de acesso à API da AWS. Instale seguindo os passos deste tutorial:
 
-https://github.com/Sensedia/open-tools/blob/master/tutorials/install_awscli.md
+https://github.com/Sensedia/Terraform-AWS-EKS/blob/master/tutorials/install_awscli.md
 
 É necessário ter instalado o kubectl versão 1.18.x ou superior. Se você não tem instalado, siga os passos deste tutorial:
 
-https://github.com/Sensedia/open-tools/blob/master/tutorials/install_kubectl.md
+https://github.com/Sensedia/Terraform-AWS-EKS/blob/master/tutorials/install_kubectl.md
 
 É necessário ter instalado o Terraform versão 0.12.x. Instale seguindo os passos deste tutorial:
 
-https://github.com/Sensedia/open-tools/blob/master/tutorials/install_terraform_0-12.md
+https://github.com/Sensedia/Terraform-AWS-EKS/blob/master/tutorials/install_terraform_0-12.md
 
 Neste tutorial será criado uma rede VPC (Virtual Private Cloud) para uso no cluster Kubernetes e também será criado um bucket AWS-S3 e uma tabela no serviço AWS-DynamoDB para armazenarem o terraform state (informações do estado da infraestrutura a ser criada pelo Terraform).
 
@@ -74,8 +62,8 @@ Baixe o código fonte com os seguinte comandos:
 
 ```bash
 cd ~
-git clone git@github.com:Sensedia/open-tools.git
-cd open-tools/terraform/eks
+git clone git@github.com:Sensedia/Terraform-AWS-EKS.git
+cd Terraform-AWS-EKS/terraform/eks
 ```
 
 O diretório networking-eks contém o código necessário à criação da infraestrutura de rede requisito a criação do cluster EKS.
@@ -97,7 +85,7 @@ O arquivo README.md contém as instruções e comandos a serem executados para c
 Antes de executar os comandos da seção a seguir, abra cada arquivo e tente entender o que cada um faz. Consulte a documentação do Terraform e da AWS para entender melhor o que é cada recurso e para que serve.
 
 Criando a VPC, o Bucket S3 e a tabela no DynamoDB
-No arquivo open-tools/terraform/eks/networking-eks/testing.tfvars podemos ver o parâmetro region, que indica que a infraestrutura será criada na região Virginia (us-east-1), utilizando o profile default (que é o mesmo nome que está no arquivo ~/.aws/credentials e que deve conter a access key e secret key cadastradas para acessar a API da AWS).
+No arquivo Terraform-AWS-EKS/terraform/eks/networking-eks/testing.tfvars podemos ver o parâmetro region, que indica que a infraestrutura será criada na região Virginia (us-east-1), utilizando o profile default (que é o mesmo nome que está no arquivo ~/.aws/credentials e que deve conter a access key e secret key cadastradas para acessar a API da AWS).
 
 Se não existir, crie um par de chaves assimétrico público-privada com o seguinte comando:
 ```bash
@@ -105,7 +93,7 @@ sudo ssh-keygen -t rsa -b 2048 -v -f /home/aws-testing.pem
 ```
 Não informe uma senha durante a criação do par de chaves, apenas aperte ENTER. A chave pública será criada no seguinte caminho: /home/aws-testing.pem.pub e será cadastrada na AWS com o nome aws-testing. Essa chave pública será associada às instâncias EC2 durante a criação do cluster e dessa forma você poderá futuramente acessá-las via SSH utilizando a chave privada que está em /home/aws-testing.pem.
 
-Estas informações foram cadastradas no arquivo open-tools/terraform/eks/networking-eks/testing.tfvars nos parâmetros aws_public_key_path e aws_key_name.
+Estas informações foram cadastradas no arquivo Terraform-AWS-EKS/terraform/eks/networking-eks/testing.tfvars nos parâmetros aws_public_key_path e aws_key_name.
 
 Outra informação importante a ser customizada neste mesmo arquivo é o parâmetro address_allowed, que contém o endereço IP público e máscara de rede que pode acessar a rede na qual será criado o cluster. Por padrão, o acesso externo é bloqueado.
 
@@ -115,7 +103,7 @@ O nome da tabela no DynamoDB que será utilizado em conjunto com o bucket S3 ser
 
 Crie a infraestrutura de rede (VPC, subnets, security group, route table, NAT Gateway, Internet Gateway), policies, bucket e tabela no DynamoDB com os seguintes comandos:
 ```bash
-cd ~/open-tools/terraform/eks/networking-eks
+cd ~/Terraform-AWS-EKS/terraform/eks/networking-eks
 
 terraform init
 
@@ -137,7 +125,7 @@ Visualize as informações da infraestrutura criada com os seguintes comandos:
 ```bash
 terraform output
 ```
-As seguintes informações serão utilizadas na seção seguinte para configurar alguns parâmetros no arquivo open-tools/terraform/eks/mycluster-eks/testing.tfvars
+As seguintes informações serão utilizadas na seção seguinte para configurar alguns parâmetros no arquivo Terraform-AWS-EKS/terraform/eks/mycluster-eks/testing.tfvars
 ```bash
 bucket_id
 
@@ -153,7 +141,7 @@ vpc1
 ```
 # Criando o cluster EKS
 
-Edite o arquivo open-tools/terraform/eks/mycluster-eks/backend.tf. Com base na informações utilizadas na seção anterior, altere os seguintes parâmetros:
+Edite o arquivo Terraform-AWS-EKS/terraform/eks/mycluster-eks/backend.tf. Com base na informações utilizadas na seção anterior, altere os seguintes parâmetros:
 
 bucket: informe o nome bucket criado anteriormente. Exemplo: “my-terraform-remote-state-01“;
 
@@ -163,7 +151,7 @@ region: informe o nome da região AWS utilizada para criar o cluster, deve ser a
 
 profile: informe o nome do perfil AWS com as credenciais de acesso a API configuradas no arquivo ~/.aws/credentials. Deve ser o mesmo utilizado para criar a infraestrutura de rede. Exemplo: “default“.
 
-Edite o arquivo open-tools/terraform/eks/mycluster-eks/testing.tfvars. Com base na informações utilizadas na seção anterior, altere os seguintes parâmetros:
+Edite o arquivo Terraform-AWS-EKS/terraform/eks/mycluster-eks/testing.tfvars. Com base na informações utilizadas na seção anterior, altere os seguintes parâmetros:
 
 profile: informe o nome do perfil AWS com as credenciais de acesso a API configuradas no arquivo ~/.aws/credentials. Deve ser o mesmo utilizado para criar a infraestrutura de rede. Exemplo: “default“.
 
@@ -194,7 +182,6 @@ root_volume_size: tamanho em GB do disco a ser utilizado em cada instância. Exe
 aws_key_name: nome da chave pública cadastrada na seção anterior a ser utilizada pelas instâncias EC2 do cluster. Exemplo: “aws-testing”;
 
 worker_additional_security_group_ids: lista contendo o ID do security group criado na seção anterior que será associado ao cluster. Exemplo: ["sg-0bc21eaa5b3a26146"];
-
 # Obtenha o ID de sua conta AWS com o seguinte comando:
 ```bash
 aws sts get-caller-identity -query Account -output text -profile PROFILE_NAME_AWS
@@ -203,13 +190,13 @@ Onde:
 
 PROFILE_NAME_AWS: é o nome do perfil AWS definido na configuração do arquivo ~/.aws/credentials
 
-Edite novamente o arquivo open-tools/terraform/eks/mycluster-eks/testing.tfvars.
+Edite novamente o arquivo Terraform-AWS-EKS/terraform/eks/mycluster-eks/testing.tfvars.
 
 E altere todas as ocorrências do ID 255686512659 pelo ID da sua conta. Altere também a ocorrência da role adsoft pelo nome da role cadastrada na sua conta (se houver) e altere a ocorrência do usuário aeciopires pelo seu nome de usuário na AWS. Isto é muito importante porque os usuários e roles informados nos parâmetros map_roles e map_users serão os únicos admins do cluster EKS.
 
 Finalmente, crie o cluster EKS com os seguintes comandos:
 ```bash
-cd ~/open-tools/terraform/eks/mycluster-eks
+cd ~/Terraform-AWS-EKS/terraform/eks/mycluster-eks
 
 terraform init
 
@@ -308,7 +295,7 @@ A documentação completa dos recursos utilizados neste tutorial estão disponí
 
 Execute os seguintes comandos para remover o cluster EKS:
 ```bash
-cd ~/open-tools/terraform/eks/mycluster-eks
+cd ~/Terraform-AWS-EKS/terraform/eks/mycluster-eks
 ```
 espaço de trabalho em terraformas selecione os testes
 ```bash
@@ -320,7 +307,7 @@ A remoção do cluster pode demorar 5 minutos ou mais.
 
 Execute os seguintes comandos para remover a infraestrutura de rede criada:
 ```bash
-cd ~/open-tools/terraform/eks/networking-eks
+cd ~/Terraform-AWS-EKS/terraform/eks/networking-eks
 ```
 espaço de trabalho em terraformas selecione os testes
 ```bash
@@ -334,7 +321,7 @@ Error: error deleting S3 Bucket …
 ```
 BucketNotEmpty: The bucket you tried to delete is not empty. You must delete all versions in the bucket.
 
-Depois disso, edite o arquivo open-tools/terraform/eks/networkin-eks/bucket.tf e altere o seguintes parâmetros:
+Depois disso, edite o arquivo Terraform-AWS-EKS/terraform/eks/networkin-eks/bucket.tf e altere o seguintes parâmetros:
 ```bash
 Antes:
   versioning {
@@ -361,7 +348,6 @@ Novamente execute os seguintes comandos para remover o bucket:
 terraformar destruir -var-file testing.tfvars
 ```
 Isto é necessário porque o bucket armazena o terraform state e em uma situação normal no ambiente de produção não é esperado que o bucket seja removido para evitar perder o rastreio das mudanças no ambiente usando o Terraform.
-
 # Considerações finais
 
 Neste tutorial aprendemos a criar um cluster kubernetes do zero utilizando o Terraform para gerenciar toda a infraestrutura de rede e o serviço AWS-EKS.
