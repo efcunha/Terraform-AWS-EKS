@@ -33,13 +33,13 @@ Alguns dos comandos e código Terraform que vamos ver neste tutorial também est
 
 # Pré-requisitos
 
-Neste tutorial será criado um cluster Kubernetes utilizando o EKS 1.17.x. Veja as novidades desta versão nos links a seguir:
+Neste tutorial será criado um cluster Kubernetes utilizando o EKS 1.22.x. Veja as novidades desta versão nos links a seguir:
 
 https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html
 
-https://kubernetes.io/blog/2019/12/09/kubernetes-1-17-release-announcement/
+https://kubernetes.io/blog/2020/12/21/writing-crl-scheduler/
 
-https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.17.md
+https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.21.md
 
 Atenção: Em cada versão do Kubernetes e do EKS pode haver mudanças significativas na API (Application Programming Interface), tag e outras configurações que podem afetar a compatibilidade das aplicações, manifests, escalabilidade e balanceadores de carga. 
 
