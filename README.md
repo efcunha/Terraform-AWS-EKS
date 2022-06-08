@@ -360,7 +360,9 @@ https://aws.amazon.com/pt/ec2/pricing/on-demand
 
 https://aws.amazon.com/eks/faqs
 
-Para ajudar a obter uma estimativa de preço, a AWS fornece uma calculadora de preços: https://calculator.aws.
+Para ajudar a obter uma estimativa de preço, a AWS fornece uma calculadora de preços: 
+
+https://calculator.aws.
 
 Veja um exemplo do custo mensal e anual da infraestrutura usada neste tutorial na região Virginia (us-east-1):
 
