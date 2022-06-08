@@ -55,15 +55,15 @@ Essas policies contém todas as permissões necessárias para gerenciar recursos
 
 Também é necessário configurar as credenciais de acesso à API da AWS. Instale seguindo os passos deste tutorial:
 
-https://github.com/efcunha/Terraform-AWS-EKS/blob/master/tutorials/install_awscli.md
+https://github.com/efcunha/Terraform-AWS-EKS/blob/main/tutorials/install_awscli.md
 
-É necessário ter instalado o kubectl versão 1.18.x ou superior. Se você não tem instalado, siga os passos deste tutorial:
+É necessário ter instalado o kubectl versão 1.20.x ou superior. Se você não tem instalado, siga os passos deste tutorial:
 
-https://github.com/efcunha/Terraform-AWS-EKS/blob/master/tutorials/install_kubectl.md
+https://github.com/efcunha/Terraform-AWS-EKS/blob/main/tutorials/install_kubectl.md
 
 É necessário ter instalado o Terraform versão 0.12.x. Instale seguindo os passos deste tutorial:
 
-https://github.com/efcunha/Terraform-AWS-EKS/blob/master/tutorials/install_terraform_0-12.md
+https://github.com/efcunha/Terraform-AWS-EKS/blob/main/tutorials/install_terraform.md
 
 Neste tutorial será criado uma rede VPC (Virtual Private Cloud) para uso no cluster Kubernetes e também será criado um bucket AWS-S3 e uma tabela no serviço AWS-DynamoDB para armazenarem o terraform state (informações do estado da infraestrutura a ser criada pelo Terraform).
 
@@ -73,7 +73,7 @@ Baixe o código fonte com os seguinte comandos:
 
 ```bash
 cd ~
-git clone git@github.com:Sensedia/Terraform-AWS-EKS.git
+git clone git@github.com:efcunha/Terraform-AWS-EKS.git
 cd Terraform-AWS-EKS/terraform/eks
 ```
 
