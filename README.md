@@ -342,7 +342,9 @@ https://docs.aws.amazon.com/eks/latest/userguide/troubleshooting_iam.html
 
 https://aws.amazon.com/pt/premiumsupport/knowledge-center/eks-api-server-unauthorized-error
 
-https://aws.amazon.com/premiumsupport/knowledge-center, seção Amazon Elastic Container Service for Kubernetes (Amazon EKS)
+https://aws.amazon.com/premiumsupport/knowledge-center
+
+Seção Amazon Elastic Container Service for Kubernetes (Amazon EKS)
 
 # Visualizando o preço
 
