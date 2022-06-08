@@ -81,11 +81,15 @@ O diretório networking-eks contém o código necessário à criação da infrae
 
 O nome de cada arquivo é bem intuitivo e o código dentro de cada um descreve a funcionalidade ou recursos a serem criados pelo Terraform. 
 
-Exemplo: O arquivo vpc.tf, contém as instruções para gerenciar o recurso VPC e subnets da AWS. O arquivo policies.tf, cria as policies necessárias no serviço AWS-IAM.
+Exemplo: O arquivo vpc.tf, contém as instruções para gerenciar o recurso VPC e subnets da AWS. 
+
+O arquivo policies.tf, cria as policies necessárias no serviço AWS-IAM.
 
 O destaque fica por conta do arquivo testing.tfvars que contém os valores de alguns parâmetros importantes que podem ser customizados de acordo com a sua necessidade ou preferência. 
 
-O arquivo outputs.tf contém o trecho de código que exibirá algumas informações sobre os recursos gerenciados pelo Terraform. Essas informações serão utilizadas para customizar o arquivo mycluster-eks/testing.tfvars.
+O arquivo outputs.tf contém o trecho de código que exibirá algumas informações sobre os recursos gerenciados pelo Terraform. 
+
+Essas informações serão utilizadas para customizar o arquivo mycluster-eks/testing.tfvars.
 
 O arquivo README.md contém as instruções e comandos a serem executados para criar a infraestrutura de rede.
 
@@ -111,7 +115,9 @@ Se não existir, crie um par de chaves assimétrico público-privada com o segui
 ```bash
 sudo ssh-keygen -t rsa -b 2048 -v -f /home/aws-testing.pem
 ```
-Não informe uma senha durante a criação do par de chaves, apenas aperte ENTER. A chave pública será criada no seguinte caminho: /home/aws-testing.pem.pub e será cadastrada na AWS com o nome aws-testing. 
+Não informe uma senha durante a criação do par de chaves, apenas aperte ENTER. 
+
+A chave pública será criada no seguinte caminho: /home/aws-testing.pem.pub e será cadastrada na AWS com o nome aws-testing. 
 
 Essa chave pública será associada às instâncias EC2 durante a criação do cluster e dessa forma você poderá futuramente acessá-las via SSH utilizando a chave privada que está em /home/aws-testing.pem.
 
@@ -125,7 +131,9 @@ O nome do bucket S3 que armazenará o terraform state está sendo definido no pa
 
 O nome dos buckets na AWS é global e não pode haver outro bucket com o mesmo nome, mesmo em contas diferentes. 
 
-É provável que você se depare com um erro durante a execução do Terraform dizendo que o bucket já existe e não será criado. A solução é definir outro nome. 
+É provável que você se depare com um erro durante a execução do Terraform dizendo que o bucket já existe e não será criado. 
+
+A solução é definir outro nome. 
 
 Esta informação será utilizada mais adiante para customizar a configuração do código que irá criar o cluster.
 
@@ -195,7 +203,9 @@ Com base na informações utilizadas na seção anterior, altere os seguintes pa
 
 profile: informe o nome do perfil AWS com as credenciais de acesso a API configuradas no arquivo ~/.aws/credentials. 
 
-Deve ser o mesmo utilizado para criar a infraestrutura de rede. Exemplo: “default“.
+Deve ser o mesmo utilizado para criar a infraestrutura de rede. 
+
+Exemplo: “default“.
 
 region: informe o nome da região AWS utilizada para criar o cluster, deve ser a mesma na qual foi criada a infraestrutura de rede. 
 
