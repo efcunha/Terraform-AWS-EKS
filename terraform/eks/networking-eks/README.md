@@ -1,32 +1,32 @@
 <!-- TOC -->
 
-- [About](#about)
-- [Requirements](#requirements)
-  - [How to](#how-to)
-  - [Requirements](#requirements-1)
-  - [Providers](#providers)
-  - [Inputs](#inputs)
-  - [Outputs](#outputs)
+- [Sobre](#sobre)
+- [Requisitos](#requisitos)
+   - [Como](#como)
+   - [Requisitos](#requisitos-1)
+   - [Provedores](#provedores)
+   - [Entradas](#entradas)
+   - [Saídas](#saídas)
 
 <!-- TOC -->
-# About
+# Sobre
 
-1. This directory contains the files:<br>
-  * ``variables.tf`` => where you can define the values of the variables used by ``main.tf``.<br>
-  * ``testing.tfvars`` => where you can define the values of the variables used in testing environment.<br>
-2. The goal is to create networking required by EKS cluster in AWS.
+1. Este diretório contém os arquivos:<br>
+   * ``variables.tf`` => onde você pode definir os valores das variáveis usadas por ``main.tf``.<br>
+   * ``testing.tfvars`` => onde você pode definir os valores das variáveis usadas no ambiente de teste.<br>
+2. O objetivo é criar a rede exigida pelo cluster EKS na AWS.
 
-# Requirements
-
-=====================
-
-NOTE: Developed using Terraform 0.12.x syntax.
+# Requisitos
 
 =====================
 
-* Configure the AWS Credentials and install the [kubectl](../../../tutorials/install_kubectl.md), [aws-cli](../../../tutorials/install_awscli.md), [terraform](../../../tutorials/install_terraform.md).
+NOTA: Desenvolvido usando a sintaxe do Terraform 0.12.x.
 
-* Create the following resources required for the functioning of the EKS cluster:
+=====================
+
+* Configure as credenciais da AWS e instale o [kubectl](../../../tutorials/install_kubectl.md), [aws-cli](../../../tutorials/install_awscli.md), [terraform](../../../tutorials/install_terraform.md).
+
+* Crie os seguintes recursos necessários para o funcionamento do cluster EKS:
   * Bucket S3 and DynamoDB table for Terraform state remote;
   * Subnets public and private;
   * VPC;
@@ -36,7 +36,7 @@ NOTE: Developed using Terraform 0.12.x syntax.
   * Route table;
   * Policies.
 
-* Execute the commands:
+* Execute os comandos:
 
 ```bash
 cd ~
@@ -46,11 +46,11 @@ git clone git@github.com:Sensedia/open-tools.git
 cd ~/open-tools/terraform/eks/networking-eks
 ```
 
-## How to
+## Como
 
-* Change the values according to the need of the environment in the ``testing.tfvars`` and ``backend.tf`` files.
+* Altere os valores de acordo com a necessidade do ambiente nos arquivos ``testing.tfvars`` e ``backend.tf``.
 
-* Validate the settings and create the environment with the following commands:
+* Valide as configurações e crie o ambiente com os seguintes comandos:
 
 ```bash
 terraform init
@@ -64,17 +64,17 @@ terraform output
 terraform show
 ```
 
-Useful commands:
+Comandos úteis:
 
-* ``terraform --help``   => Show help of command terraform<br>
-* ``terraform init``     => Initialize a Terraform working directory<br>
-* ``terraform validate`` => Validates the Terraform files<br>
-* ``terraform plan``     => Generate and show an execution plan<br>
-* ``terraform apply``    => Builds or changes infrastructure<br>
-* ``terraform output``   => Reads an output variable from a Terraform state file and prints the value.<br>
-* ``terraform show``     => Inspect Terraform state or plan<br>
+* ``terraform --help``   => Mostrar ajuda do comando terraform<br>
+* ``terraform init``     => Inicialize um diretório de trabalho do Terraform<br>
+* ``terraform validate`` => Valida os arquivos do Terraform<br>
+* ``terraform plan``     => Gerar e mostrar um plano de execução<br>
+* ``terraform apply``    => Constrói ou altera a infraestrutura<br>
+* ``terraform output``   => Lê uma variável de saída de um arquivo de estado do Terraform e imprime o valor.<br>
+* ``terraform show``     => Inspecione o estado ou plano do Terraform<br>
 
-## Requirements
+## Requisitos
 
 | Name | Version |
 |------|---------|
@@ -85,14 +85,14 @@ Useful commands:
 | random | >= 2.2.1 |
 | template | >= 2.1.2 |
 
-## Providers
+## Provedores
 
 | Name | Version |
 |------|---------|
 | aws | >= 2.61.0 |
 | local | >= 1.4.0 |
 
-## Inputs
+## Entradas
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
@@ -110,7 +110,7 @@ Useful commands:
 | tags | Maps of tags. | `map` | `{}` | no |
 | vpc1\_cidr\_block | CIDR block to vpc1. | `any` | n/a | yes |
 
-## Outputs
+## Saídas
 
 | Name | Description |
 |------|-------------|
