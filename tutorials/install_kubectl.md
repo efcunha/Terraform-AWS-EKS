@@ -11,7 +11,7 @@ Run the following commands to install ``kubectl``.
 ```bash
 sudo su
 
-VERSION=v1.20.7
+VERSION=v1.24.0
 KUBECTL_BIN=kubectl
 
 function install_kubectl {
@@ -34,6 +34,6 @@ kubectl version --client
 exit
 ```
 
-More information about ``kubectl``: https://kubernetes.io/docs/reference/kubectl/overview/
+Mais informações sobre ``kubectl``: https://kubernetes.io/docs/reference/kubectl/overview/
 
-Reference: https://kubernetes.io/docs/tasks/tools/install-kubectl/
+Referência: https://kubernetes.io/docs/tasks/tools/install-kubectl/
