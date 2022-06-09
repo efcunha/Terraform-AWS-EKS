@@ -1,15 +1,15 @@
 <!-- TOC -->
 
-- [Install Go](#install-go)
+- [Instalar Go](#instalar-go)
 
 <!-- TOC -->
 
-# Install Go
+# Instalar Go
 
-Run the following commands to install Go.
+Execute os seguintes comandos para instalar o Go.
 
 ```bash
-VERSION=1.16.4
+VERSION=1.18.3
 
 mkdir -p $HOME/go/bin
 
@@ -29,4 +29,4 @@ echo "GOPATH=$HOME/go" >> ~/.bashrc
 echo "PATH=\$PATH:/usr/local/go/bin:\$GOPATH/bin" >> ~/.bashrc
 ```
 
-More informations: https://golang.org/doc
+Mais informações: https://golang.org/doc
