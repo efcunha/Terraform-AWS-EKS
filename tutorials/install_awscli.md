@@ -1,55 +1,55 @@
 <!-- TOC -->
 
-- [Install AWC-CLI](#install-awc-cli)
-- [Configure AWS Credentials](#configure-aws-credentials)
+- [Instalar AWC-CLI](#instalar-awc-cli)
+- [Configurar credenciais da AWS](#configurar-credenciais-da-aws)
 
 <!-- TOC -->
 
-# Install AWC-CLI
+# Instalar AWC-CLI
 
-Run the following commands to install ``awscli`` package.
+Execute os seguintes comandos para instalar o pacote ``awscli``.
 
 ```bash
 curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"
 
-unzip awscli-bundle.zip
+descompacte awscli-bundle.zip
 
 sudo ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
 
-aws --version
+aws --versão
 
 rm -rf awscli-bundle.zip awscli-bundle
 ```
 
-More information about ``aws-cli``: https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html
+Mais informações sobre ``aws-cli``: https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html
 
-Reference: https://docs.aws.amazon.com/cli/latest/userguide/install-linux.html
+Referência: https://docs.aws.amazon.com/cli/latest/userguide/install-linux.html
 
-# Configure AWS Credentials
+# Configurar credenciais da AWS
 
-[OPTIONAL] You will need to create an Amazon AWS account. Create a **Free Tier** account at Amazon https://aws.amazon.com/ follow the instructions on the pages: https://docs.aws.amazon.com/chime/latest/ag/aws-account.html and https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/free-tier-limits.html. When creating the account you will need to register a credit card, but since you will create instances using the features offered by the **Free Tier** plan, nothing will be charged if you do not exceed the limit for the use of the features and time offered and described in the previous link.
+[OPCIONAL] Você precisará criar uma conta Amazon AWS. Crie uma conta de **Nível gratuito** na Amazon https://aws.amazon.com/ siga as instruções nas páginas: https://docs.aws.amazon.com/chime/latest/ag/aws-account. html e https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/free-tier-limits.html. Ao criar a conta, você precisará cadastrar um cartão de crédito, mas como você criará instâncias usando os recursos oferecidos pelo plano **Nível Gratuito**, nada será cobrado se você não ultrapassar o limite de uso dos recursos e tempo oferecido e descrito no link anterior.
 
-After creating the account in AWS, access the Amazon CLI interface at: https://aws.amazon.com/cli/
+Após criar a conta na AWS, acesse a interface da Amazon CLI em: https://aws.amazon.com/cli/
 
-Click on the username (upper right corner) and choose the **Security Credentials** option. Then click on the **Access Key and Secret Access Key** option and click the **New Access Key** button to create and view the ID and Secret of the key.
+Clique no nome de usuário (canto superior direito) e escolha a opção **Security Credentials**. Em seguida, clique na opção **Access Key and Secret Access Key** e clique no botão **New Access Key** para criar e visualizar o ID e o segredo da chave.
 
-Create the directory below.
+Crie o diretório abaixo.
 
 ```bash
 echo $HOME
 
 mkdir -p $HOME/.aws/
 
-touch $HOME/.aws/credentials
+toque em $HOME/.aws/credentials
 ```
 
-Open ``$HOME/.aws/credentials`` file and add the following content and change the access key and secret access key.
+Abra o arquivo ``$HOME/.aws/credentials`` e adicione o seguinte conteúdo e altere a chave de acesso e a chave de acesso secreta.
 ```
-[default]
+[predefinição]
 aws_access_key_id = YOUR_ACCESS_KEY_HERE
 aws_secret_access_key = YOUR_SECRET_ACCESS_KEY_HERE
 ```
 
-In this case, the profile name AWS is **default**.
+Nesse caso, o nome do perfil AWS é **padrão**.
 
-Reference: https://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html
+Referências: https://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html
