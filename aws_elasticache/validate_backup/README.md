@@ -1,4 +1,4 @@
-# Validate AWS Elasticache Backup
+# Validar o AWS Elasticache Backup
 
 <!-- TOC -->
 
@@ -12,66 +12,66 @@
 
 <!-- TOC -->
 
-# About
+# Sobre
 
-Alpine Image with some tools:
+Imagem Alpina com algumas ferramentas:
 
 - awscli
 - aws-iam-authenticator
 - rdb
 - and some basic packages:
-  - python3, py3-pip, curl, jq, bash, vim, net-tools, bind-tools and moreutils
+- python3, py3-pip, curl, jq, bash, vim, net-tools, bind-tools and moreutils
 
-# Requirement
- - AWS Elasticache Cluster
- - Follow the AWS Documentation's instruction to create an Amazon Bucket S3 and grant permission to AWS ElastiCache access this bucket:
-    - https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/backups-exporting.html#backups-exporting-procedures
+# Requerimento
+
+- AWS Elasticache Cluster
+- Follow the AWS Documentation's instruction to create an Amazon Bucket S3 and grant permission to AWS ElastiCache access this bucket:
+- https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/backups-exporting.html#backups-exporting-procedures
 - For AWS Elasticache enable Automatic Backup and choose a Backup Retention Period and a Backup Window:
-  - https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/backups-automatic.html
+- https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/backups-automatic.html
 
-# Running
+# Executar
+
 docker run -it --rm -e "AWS_ACCESS_KEY_ID=\<your_aws_access_key_id>" -e "AWS_SECRET_ACCESS_KEY=\<your_aws_secret_key>"" -e "AWS_DEFAULT_REGION=\<region>" -e "_DEBUG_COMMAND=<on|off>" -e "BACKUP_TIME=\<time>" -e "MY_S3_BUCKET=\<bucket_name>" -e "CACHE_SIZE=\<cache_size>" -e "REDIS_VERSION=\<redis_version>" -e "ZONE_01='<zone_01>'" -e "ZONE_02='<zone_02>'" -e "REPLICATION_GROUP_ID=\<replication_group_id>" -e "SLOT_01=\<slot_01>" -e "SLOT_02=\<slot_02>" -e "SLOT_03=\<slot_03>" -e "MINIMAL_KEYS_PERCENTAGE=\<keys_percentage>" --name sensedia sensedia/validate_backup_elasticache:1.0
 
-```diff
-- Change each of the above parameters according to your environment before running docker run command
+```diferença
+- Altere cada um dos parâmetros acima de acordo com seu ambiente antes de executar o comando docker run
 ```
 
-# Parameters Explanation
-AWS_ACCESS_KEY_ID - Your AWS Acess Key ID
+# Explicação dos Parâmetros
 
-AWS_SECRET_ACCESS_KEY - Your AWS Secret Key
+AWS_ACCESS_KEY_ID - Seu ID da chave de acesso da AWS
 
-AWS_DEFAULT_REGION - The region of your AWS Elasticache Cluster
+AWS_SECRET_ACCESS_KEY - Sua chave secreta da AWS
 
-_DEBUG_COMMAND - Enable (on) or Disable (off) debug output
+AWS_DEFAULT_REGION - A região do cluster do AWS Elasticche
 
-BACKUP_TIME - Initial time of your Backup Window Configuration (see [Requirement](#requirement))
+_DEBUG_COMMAND - Ativar (ativado) ou Desativar (desativado) a saída de depuração
 
-MY_S3_BUCKET - Your S3 Bucket Name (see [Requirement](#requirement))
+BACKUP_TIME - Hora inicial da configuração da sua janela de backup (consulte [Requisito](#requirement))
 
-CACHE_SIZE - The Node type, for example: "cache.m5.large"
+MY_S3_BUCKET - Seu nome de bucket do S3 (consulte [Requisito](#requirement))
 
-REDIS_VERSION - Version of you AWS Elasticache Cluster (Engine Version Compatibility)
+CACHE_SIZE - O tipo de nó, por exemplo: "cache.m5.large"
 
-ZONE_01 and ZONE_02 - AWS Availability Zones, for example: "us-east-1a" and "us-east-1c"
+REDIS_VERSION - Versão do seu cluster do AWS Elasticche (compatibilidade de versão do mecanismo)
 
-REPLICATION_GROUP_ID - Identification of cluster, for examplo: restore-backup-redis
+ZONE_01 e ZONE_02 - Zonas de disponibilidade da AWS, por exemplo: "us-east-1a" e "us-east-1c"
 
-SLOT_01, SLOT_02 and SLOT_03 - Slots/Keyspaces of Shards, for example: 0-5461, 5462-10922 and 10923-16383
+REPLICATION_GROUP_ID - Identificação do cluster, por exemplo: restore-backup-redis
 
-MINIMAL_KEYS_PERCENTAGE - Which is the minimal acceptable for equals keys since last snapshot and actual state
+SLOT_01, SLOT_02 e SLOT_03 - Slots/Keyspaces de Shards, por exemplo: 0-5461, 5462-10922 e 10923-16383
 
+MINIMAL_KEYS_PERCENTAGE - Qual é o mínimo aceitável para chaves iguais desde o último instantâneo e estado real
 
-# Addictional Instructions
-If you have a different number of:
+# Instruções Adicionais
+
+Se você tiver um número diferente de:
+
  - Nodes (3)
  - Regions (2)
  - Slots (3)
 
-```diff
-- You'll need to change the script
+```diferença
+- Você precisará alterar o script
 ```
-
-# License
-
- GPLv3 - Sensedia 2021
