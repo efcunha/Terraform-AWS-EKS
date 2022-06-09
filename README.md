@@ -3,15 +3,15 @@
 
 ```bash
 ├── CONTRIBUTING.md
-├── aws_elasticache # tools about aws elasticache
-├── docker          # tools about docker
-├── git             # tools about git
-├── kubernetes      # tools about kubernetes (k8s)
+├── aws_elasticache # ferramentas sobre aws elasticache
+├── docker          # ferramentas sobre docker
+├── git             # ferramentas sobre git
+├── kubernetes      # ferramentas sobre kubernetes (k8s)
 ├── LICENSE
-├── prometheus # script and config about Prometheus
+├── prometheus      # script e configuração sobre o Prometheus
 ├── README.md
-├── terraform  # code about Terraform
-└── tutorials  # miscellaneous tutorials
+├── terraform       # código sobre o Terraform
+└── tutorials       # tutoriais diversos
 ```
 # Introdução
 
