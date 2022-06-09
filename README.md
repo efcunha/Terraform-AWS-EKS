@@ -15,7 +15,9 @@
 ```
 # Introdução
 
-Neste artigo iremos passar pelas boas práticas de como criar um cluster Kubernetes com Terraform e AWS-EKS, também conhecido por k8s (entenda o motivo aqui), utilizando o Terraform e o serviço EKS (Elastic Kubernetes Service) da AWS. Se você não sabe o que é Kubernetes, consulte o material Descomplicando o Kubernetes.
+Neste artigo iremos passar pelas boas práticas de como criar um cluster Kubernetes com Terraform e AWS-EKS, também conhecido por k8s (entenda o motivo aqui), utilizando o Terraform e o serviço EKS (Elastic Kubernetes Service) da AWS. 
+
+Se você não sabe o que é Kubernetes, consulte o material Descomplicando o Kubernetes.
 
 Se você não sabe o que é Terraform ou EKS, visite as seguintes páginas para obter mais informações:
 
@@ -45,7 +47,9 @@ Atenção: Em cada versão do Kubernetes e do EKS pode haver mudanças significa
 
 Então, é bem importante ler as notas da release e testar a nova versão em um ambiente diferente do de produção para se antecipar aos possíveis problemas e evitar indisponibilidade.
 
-Para executar os passos deste tutorial você precisa utilizar alguma distribuição GNU/Linux, pois os comandos não foram testados no MS Windows ou MacOS.
+Para executar os passos deste tutorial você precisa utilizar alguma distribuição GNU/Linux, pois os comandos não foram testados no:
+
+# MS Windows ou MacOS.
 
 É necessário ter uma conta de acesso à AWS e com as policies AdministratorAccess e PowerUserAccess associadas diretamente a sua conta ou associadas a uma role (grupo de policies) ao qual você possa utilizar. 
 
