@@ -1,19 +1,19 @@
 <!-- TOC -->
 
-- [[OPTION_1] Install Binary of Terraform](#option_1-install-binary-of-terraform)
-- [[OPTION_2] Install tfenv for management of Terraform versions](#option_2-install-tfenv-for-management-of-terraform-versions)
+- [Instalar binário do Terraform](#Instalar-binário-do-Terraform)
+- [Instale o tfenv para gerenciamento de versões do Terraform](#Instale-o-tfenv-para-gerenciamento-de-versões-do-Terraform)
 
 <!-- TOC -->
 
-# [OPTION_1] Install Binary of Terraform
+## Instalar binário do Terraform
 
-Run the following commands to install ``terraform``.
+Execute os seguintes comandos para instalar o ``terraform``.
 
 ```bash
 sudo su
 
-TERRAFORM_ZIP_FILE=terraform_0.12.31_linux_amd64.zip
-TERRAFORM_BASE_URL=https://releases.hashicorp.com/terraform/0.12.31
+TERRAFORM_ZIP_FILE=terraform_1.2.2_linux_amd64.zip
+TERRAFORM_BASE_URL=https://releases.hashicorp.com/terraform/1.2.2
 
 function install_terraform {
 if [ -z $(which terraform) ]; then
@@ -34,11 +34,13 @@ terraform version
 exit
 ```
 
-More information about ``terraform``: https://www.terraform.io/docs/index.html
+Mais informações sobre o ``terraform``: 
 
-# [OPTION_2] Install tfenv for management of Terraform versions
+https://www.terraform.io/docs/index.html
 
-Run the following commands to install ``tfenv``.
+## Instale o tfenv para gerenciamento de versões do Terraform
+
+Execute os seguintes comandos para instalar o ``tfenv``.
 
 ```bash
 cd $HOME
@@ -49,38 +51,43 @@ sudo ln -s ~/.tfenv/bin/* /usr/local/bin
 Install Terraform version using ``tfenv`` command:
 
 ```bash
-tfenv install 0.12.31
+tfenv install 1.2.2
 ```
 
-More information about ``tfenv``: https://github.com/tfutils/tfenv
+Mais informações sobre ``tfenv``:
 
-List Terraform versions to install:
+https://github.com/tfutils/tfenv
+
+Liste as versões do Terraform a serem instaladas:
 
 ```bash
 tfenv list-remote
 ```
 
-Using specific Terraform version installed:
+Usando a versão específica do Terraform instalada:
 
 ```bash
 tfenv use <VERSION>
 ```
 
-Uninstall Terraform version with ``tfenv`` command:
+Desinstale a versão do Terraform com o comando ``tfenv``:
 
 ```bash
 tfenv uninstall <VERSION>
 ```
 
-List Terraform versions installed:
+Listar as versões do Terraform instaladas:
 
 ```bash
 tfenv list
 ```
 
-Only when developing code that makes use of Terraform, you can force the project to use a specific version:
-Create the ``.terraform-version`` file at the root of the project with the desired version number. Example:
+Somente ao desenvolver um código que faça uso do Terraform, você pode forçar o projeto a usar uma versão específica:
+
+Crie o arquivo ``.terraform-version`` na raiz do projeto com o número da versão desejada. 
+
+Exemplo:
 
 ```bash
-echo "0.12.31" > .terraform-version
+echo "1.2.2" > .terraform-version
 ```
