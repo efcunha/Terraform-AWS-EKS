@@ -1,29 +1,29 @@
 <!-- TOC -->
 
-- [Install Docker](#install-docker)
+- [Instalar o Docker](#instalar-o-docker)
 
 <!-- TOC -->
 
-# Install Docker
+# Instalar o Docker
 
-Install Docker CE (Community Edition) following the instructions of the pages below, according to your GNU/Linux distribution.
+Instale o Docker CE (Community Edition) seguindo as instruções das páginas abaixo, de acordo com sua distribuição GNU/Linux.
 
 * CentOS: https://docs.docker.com/install/linux/docker-ce/centos/
 * Debian: https://docs.docker.com/install/linux/docker-ce/debian/
 * Ubuntu: https://docs.docker.com/install/linux/docker-ce/ubuntu/
 
-Start the ``docker`` service, configure Docker to boot up with the OS and add your user to the ``docker`` group.
+Inicie o serviço ``docker``, configure o Docker para inicializar com o SO e adicione seu usuário ao grupo ``docker``.
 
 ```bash
-# Start the Docker service
+#Inicia o serviço Docker
 sudo systemctl start docker
 
-# Configure Docker to boot up with the OS
-sudo systemctl enable docker
+# Configure o Docker para inicializar com o SO
+sudo systemctl habilitar docker
 
-# Add your user to the Docker group
+# Adicione seu usuário ao grupo Docker
 sudo usermod -aG docker $USER
 sudo setfacl -m user:$USER:rw /var/run/docker.sock
 ```
 
-Reference: https://docs.docker.com/engine/install/linux-postinstall/#configure-docker-to-start-on-boot
+Referência: https://docs.docker.com/engine/install/linux-postinstall/#configure-docker-to-start-on-boot
