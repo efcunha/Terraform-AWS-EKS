@@ -1,33 +1,36 @@
 <!-- TOC -->
 
-- [About](#about)
-- [Requirements](#requirements)
-  - [How to](#how-to)
-- [Throubleshooting](#throubleshooting)
-  - [Requirements](#requirements-1)
-  - [Providers](#providers)
-  - [Inputs](#inputs)
-  - [Outputs](#outputs)
+- [Sobre)(#sobre)
+- [Requisitos](#requisitos)
+- [como fazer](#como fazer)
+- [Solução de problemas](#solução de problemas)
+- [Requisitos](#requisitos-1)
+- [Provedores](#provedores)
+- [Entradas](#entradas)
+- [Saídas](#saídas)
 
 <!-- TOC -->
-# About
+# Sobre
 
-1. This directory contains the files:<br>
-  * ``variables.tf`` => where you can define the values of the variables used by ``main.tf``.<br>
-  * ``testing.tf`` => where you can define the values of the variables used in testing environment.<br>
-2. The goal is to create EKS cluster in AWS.
+1. Este diretório contém os arquivos:<br>
+   * ``variables.tf`` => onde você pode definir os valores das variáveis usadas por ``main.tf``.<br>
+   * ``testing.tf`` => onde você pode definir os valores das variáveis usadas no ambiente de teste.<br>
+2. O objetivo é criar um cluster EKS na AWS.
 
-# Requirements
-
-=====================
-
-NOTE: Developed using Terraform 0.12.x syntax.
+# Requisitos
 
 =====================
 
-* Configure the AWS Credentials and install the [kubectl](../../../tutorials/install_kubectl.md), [aws-cli](../../../tutorials/install_awscli.md), [terraform](../../../tutorials/install_terraform.md).
+NOTA: Desenvolvido usando a sintaxe do Terraform 0.12.x.
 
-* Create the following resources required for the functioning of the EKS cluster. Do this executing the Terraform code as instructed in the file [../networking-eks/README.md](../networking-eks/README.md). See the output of the ``terraform apply`` and change the values ​​of the subnets, vpc, security group in the [testing.tfvars](testing.tfvars) and [backend.tf](backend.tf) files according to the needs of your environment.
+=====================
+
+* Configure as credenciais da AWS e instale o [kubectl](../../../tutorials/install_kubectl.md), [aws-cli](../../../tutorials/install_awscli.md), [terraform](../../../tutorials/install_terraform.md).
+
+* Crie os seguintes recursos necessários para o funcionamento do cluster EKS. Faça isso executando o código do Terraform conforme instruído no arquivo [../networking-eks/README.md](../networking-eks/README.md). 
+
+* Veja a saída do ``terraform apply`` e altere os valores das sub-redes, vpc, security group nos arquivos [testing.tfvars](testing.tfvars) e [backend.tf](backend.tf) conforme às necessidades do seu ambiente.
+
   * Bucket S3 and DynamoDB table for Terraform state remote;
   * Subnets public and private;
   * VPC;
@@ -37,7 +40,7 @@ NOTE: Developed using Terraform 0.12.x syntax.
   * Route table;
   * Policies.
 
-* Execute the commands:
+* Execute os comandos:
 
 ```bash
 cd ~
@@ -47,11 +50,11 @@ git clone git@github.com:Sensedia/open-tools.git
 cd ~/open-tools/terraform/eks/mycluster-eks
 ```
 
-## How to
+## Como fazer
 
-* Change the values according to the need of the environment in the ``testing.tfvars`` and ``backend.tf`` files.
+* Altere os valores de acordo com a necessidade do ambiente nos arquivos ``testing.tfvars`` e ``backend.tf``.
 
-* Validate the settings and create the environment with the following commands:
+* Valide as configurações e crie o ambiente com os seguintes comandos:
 
 ```bash
 terraform init
@@ -65,17 +68,17 @@ terraform output
 terraform show
 ```
 
-Useful commands:
+Comandos úteis:
 
-* ``terraform --help``   => Show help of command terraform<br>
-* ``terraform init``     => Initialize a Terraform working directory<br>
-* ``terraform validate`` => Validates the Terraform files<br>
-* ``terraform plan``     => Generate and show an execution plan<br>
-* ``terraform apply``    => Builds or changes infrastructure<br>
-* ``terraform output``   => Reads an output variable from a Terraform state file and prints the value.<br>
-* ``terraform show``     => Inspect Terraform state or plan<br>
+* ``terraform --help`` => Mostrar ajuda do comando terraform<br>
+* ``terraform init`` => Inicialize um diretório de trabalho do Terraform<br>
+* ``terraform validate`` => Valida os arquivos do Terraform<br>
+* ``terraform plan`` => Gerar e mostrar um plano de execução<br>
+* ``terraform apply`` => Constrói ou altera a infraestrutura<br>
+* ``terraform output`` => Lê uma variável de saída de um arquivo de estado do Terraform e imprime o valor.<br>
+* ``terraform show`` => Inspecione o estado ou plano do Terraform>
 
-Access cluster with Kubectl.
+Acesse o cluster com Kubectl.
 
 ```bash
 aws eks --region REGION_NAME update-kubeconfig --name CLUSTER_NAME --profile PROFILE_NAME_AWS
@@ -85,9 +88,9 @@ kubectl get nodes -A
 kubectl get pods -A
 ```
 
-# Throubleshooting
+# Solução de problemas
 
-Documentations:
+Documentações:
 
 * https://docs.aws.amazon.com/eks/latest/userguide/troubleshooting.html
 * https://kubernetes.io/docs/tasks/debug-application-cluster/debug-cluster/
@@ -100,7 +103,7 @@ Documentations:
 * https://github.com/terraform-aws-modules/terraform-aws-eks
 * https://github.com/terraform-aws-modules/terraform-aws-eks/tree/master/examples
 
-## Requirements
+## Requisitos
 
 | Name | Version |
 |------|---------|
@@ -121,7 +124,7 @@ Documentations:
 | null | >= 2.1.2 |
 | template | >= 2.1.2 |
 
-## Inputs
+## Entradas
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
@@ -159,7 +162,7 @@ Documentations:
 | worker\_additional\_security\_group\_ids | A list of additional security group ids to attach to worker instances. | `list(string)` | `[]` | no |
 | workers\_additional\_policies | Additional policies to be added to workers | `list(string)` | `[]` | no |
 
-## Outputs
+## Saídas
 
 | Name | Description |
 |------|-------------|
