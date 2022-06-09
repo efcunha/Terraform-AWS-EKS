@@ -1,9 +1,9 @@
 <!-- TOC -->
 
-- [Sobre)(#sobre)
+- [Sobre](#sobre)
 - [Requisitos](#requisitos)
-- [como fazer](#como fazer)
-- [Solução de problemas](#solução de problemas)
+- [Como](#como)
+- [Soluções](#soluções)
 - [Requisitos](#requisitos-1)
 - [Provedores](#provedores)
 - [Entradas](#entradas)
@@ -50,7 +50,7 @@ git clone git@github.com:Sensedia/open-tools.git
 cd ~/open-tools/terraform/eks/mycluster-eks
 ```
 
-## Como fazer
+## Como
 
 * Altere os valores de acordo com a necessidade do ambiente nos arquivos ``testing.tfvars`` e ``backend.tf``.
 
@@ -88,7 +88,7 @@ kubectl get nodes -A
 kubectl get pods -A
 ```
 
-# Solução de problemas
+# Soluções
 
 Documentações:
 
@@ -115,7 +115,7 @@ Documentações:
 | random | >= 2.2.1 |
 | template | >= 2.1.2 |
 
-## Providers
+## Provedores
 
 | Name | Version |
 |------|---------|
