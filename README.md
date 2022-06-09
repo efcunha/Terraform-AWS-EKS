@@ -55,17 +55,17 @@ Para executar os passos deste tutorial você precisa utilizar alguma distribuiç
 
 Essas policies contém todas as permissões necessárias para gerenciar recursos da AWS.
 
-É necessário ter instalado o aws-cli versão 1.16.x ou superior. 
+É necessário ter instalado o aws-cli versão 2.0.x ou superior. 
 
 Também é necessário configurar as credenciais de acesso à API da AWS. Instale seguindo os passos deste tutorial:
 
 https://github.com/efcunha/Terraform-AWS-EKS/blob/main/tutorials/install_awscli.md
 
-É necessário ter instalado o kubectl versão 1.20.x ou superior. Se você não tem instalado, siga os passos deste tutorial:
+É necessário ter instalado o kubectl versão 1.24.x ou superior. Se você não tem instalado, siga os passos deste tutorial:
 
 https://github.com/efcunha/Terraform-AWS-EKS/blob/main/tutorials/install_kubectl.md
 
-É necessário ter instalado o Terraform versão 0.12.x. Instale seguindo os passos deste tutorial:
+É necessário ter instalado o Terraform versão 1.2.x. Instale seguindo os passos deste tutorial:
 
 https://github.com/efcunha/Terraform-AWS-EKS/blob/main/tutorials/install_terraform.md
 
@@ -125,7 +125,11 @@ A chave pública será criada no seguinte caminho: /home/aws-testing.pem.pub e s
 
 Essa chave pública será associada às instâncias EC2 durante a criação do cluster e dessa forma você poderá futuramente acessá-las via SSH utilizando a chave privada que está em /home/aws-testing.pem.
 
-Estas informações foram cadastradas no arquivo Terraform-AWS-EKS/terraform/eks/networking-eks/testing.tfvars nos parâmetros aws_public_key_path e aws_key_name.
+Estas informações foram cadastradas no arquivo Terraform-AWS-EKS/terraform/eks/networking-eks/testing.tfvars nos parâmetros:
+
+aws_public_key_path:
+
+aws_key_name:
 
 Outra informação importante a ser customizada neste mesmo arquivo é o parâmetro address_allowed, que contém o endereço IP público e máscara de rede que pode acessar a rede na qual será criado o cluster. 
 
@@ -189,9 +193,13 @@ Edite o arquivo Terraform-AWS-EKS/terraform/eks/mycluster-eks/backend.tf.
 
 Com base na informações utilizadas na seção anterior, altere os seguintes parâmetros:
 
-bucket: informe o nome bucket criado anteriormente. Exemplo: “my-terraform-remote-state-01“;
+bucket: informe o nome bucket criado anteriormente. 
 
-dynamodb_table: informe o nome da tabela criada no DynamoDB. Exemplo: " my-terraform-state-lock-dynamo";
+Exemplo: “my-terraform-remote-state-01“;
+
+dynamodb_table: informe o nome da tabela criada no DynamoDB. 
+
+Exemplo: " my-terraform-state-lock-dynamo";
 
 region: informe o nome da região AWS utilizada para criar o cluster, deve ser a mesma na qual foi criada a infraestrutura de rede. 
 
@@ -199,7 +207,9 @@ Exemplo: “us-east-1“;
 
 profile: informe o nome do perfil AWS com as credenciais de acesso a API configuradas no arquivo ~/.aws/credentials. 
 
-Deve ser o mesmo utilizado para criar a infraestrutura de rede. Exemplo: “default“.
+Deve ser o mesmo utilizado para criar a infraestrutura de rede. 
+
+Exemplo: “default“.
 
 Edite o arquivo Terraform-AWS-EKS/terraform/eks/mycluster-eks/testing.tfvars. 
 
