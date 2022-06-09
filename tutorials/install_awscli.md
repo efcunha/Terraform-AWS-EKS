@@ -27,11 +27,21 @@ Referência: https://docs.aws.amazon.com/cli/latest/userguide/install-linux.html
 
 # Configurar credenciais da AWS
 
-[OPCIONAL] Você precisará criar uma conta Amazon AWS. Crie uma conta de **Nível gratuito** na Amazon https://aws.amazon.com/ siga as instruções nas páginas: https://docs.aws.amazon.com/chime/latest/ag/aws-account. html e https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/free-tier-limits.html. Ao criar a conta, você precisará cadastrar um cartão de crédito, mas como você criará instâncias usando os recursos oferecidos pelo plano **Nível Gratuito**, nada será cobrado se você não ultrapassar o limite de uso dos recursos e tempo oferecido e descrito no link anterior.
+[OPCIONAL] Você precisará criar uma conta Amazon AWS. Crie uma conta de **Nível gratuito** na Amazon https://aws.amazon.com/ siga as instruções nas páginas: 
+
+https://docs.aws.amazon.com/chime/latest/ag/aws-account. 
+
+e 
+
+https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/free-tier-limits.html. 
+
+Ao criar a conta, você precisará cadastrar um cartão de crédito, mas como você criará instâncias usando os recursos oferecidos pelo plano **Nível Gratuito**, nada será cobrado se você não ultrapassar o limite de uso dos recursos e tempo oferecido e descrito no link anterior.
 
 Após criar a conta na AWS, acesse a interface da Amazon CLI em: https://aws.amazon.com/cli/
 
-Clique no nome de usuário (canto superior direito) e escolha a opção **Security Credentials**. Em seguida, clique na opção **Access Key and Secret Access Key** e clique no botão **New Access Key** para criar e visualizar o ID e o segredo da chave.
+Clique no nome de usuário (canto superior direito) e escolha a opção **Security Credentials**. 
+
+Em seguida, clique na opção **Access Key and Secret Access Key** e clique no botão **New Access Key** para criar e visualizar o ID e o segredo da chave.
 
 Crie o diretório abaixo.
 
