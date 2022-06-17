@@ -1,14 +1,13 @@
-# install_prometheus-operator_k8s
+# Install Prometheus Operator k8s
 
 <!-- TOC -->
 
-- [install_prometheus-operator_k8s](#install_prometheus-operator_k8s)
-- [About](#about)
-- [Summary](#summary)
-- [Prerequisites for Prometheus Installation](#prerequisites-for-prometheus-installation)
-- [Prometheus Installation](#prometheus-installation)
+- [Sobre](#sobre)
+- [Resumo](#resumo)
+- [Pré-requisitos para instalação do Prometheus](#pré-requisitos-para-instalação-do-prometheus)
+- [Instalação do Prometheus](#instalação-do-prometheus)
 - [Troubleshooting](#troubleshooting)
-- [Optional: Access Grafana](#optional-access-grafana)
+- [Opcional: Acesso Grafana](#opcional-acesso-grafana)
 
 <!-- TOC -->
 
