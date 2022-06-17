@@ -2,13 +2,11 @@
 
 <!-- TOC -->
 
-- [Validate AWS Elasticache Backup](#validate-aws-elasticache-backup)
-- [About](#about)
-- [Requirement](#requirement)
-- [Running](#running)
-- [Parameters Explanation](#parameters-explanation)
-- [Addictional Instructions](#addictional-instructions)
-- [License](#license)
+- [Sobre](#sobre)
+- [Requerimento](#requerimento)
+- [Executar](#executar)
+- [Explicação dos Parâmetros](#explicação-dos-parâmetros)
+- [Instruções Adicionais](#instruções-adicionais)
 
 <!-- TOC -->
 
