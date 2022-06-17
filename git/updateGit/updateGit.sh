@@ -1,8 +1,6 @@
 #!/bin/bash
 
 #------------------------
-# Authors: Aecio Pires
-# Date: 13 jan 2020
 #
 # Objective: Update git repositories local
 #
