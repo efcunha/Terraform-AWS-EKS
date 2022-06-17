@@ -39,11 +39,7 @@ NOTA: Desenvolvido usando a sintaxe do Terraform 0.12.x.
 * Execute os comandos:
 
 ```bash
-cd ~
-
-git clone git@github.com:Sensedia/open-tools.git
-
-cd ~/open-tools/terraform/eks/networking-eks
+cd ~/Terraform-AWS-EKS/terraform/eks/networking-eks
 ```
 
 ## Como
