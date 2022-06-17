@@ -74,11 +74,11 @@ install_prometheus-operator_k8s/
 
 # Pré-requisitos para instalação do Prometheus
 
-* kubectl ~> 1.15 or major
-* helm ~> v3.1.1 or major (see version supported https://helm.sh/docs/topics/version_skew/)
+* kubectl ~> 1.15 ou maior
+* helm ~> v3.1.1 ou maior (ver versão suportada https://helm.sh/docs/topics/version_skew/)
 * gcloud
-* sops -> 3.5.0 or major
-* awscli -> 1.18 or major
+* sops -> 3.5.0 ou maior
+* awscli -> 1.18 ou maior
 * git
 
 Install plugin Helm secrets.
