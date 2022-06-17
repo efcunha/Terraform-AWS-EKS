@@ -45,7 +45,7 @@ NOTA: Desenvolvido usando a sintaxe do Terraform 0.12.x.
 ```bash
 cd ~
 
-git clone git@github.com:Sensedia/open-tools.git
+git clone git@github.com:efcunha/open-tools.git
 
 cd ~/open-tools/terraform/eks/mycluster-eks
 ```
