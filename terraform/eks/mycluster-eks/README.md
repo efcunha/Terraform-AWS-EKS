@@ -43,7 +43,7 @@ NOTA: Desenvolvido usando a sintaxe do Terraform 0.12.x.
 * Execute os comandos:
 
 ```bash
-cd ~/open-tools/terraform/eks/mycluster-eks
+cd ~/Terraform-AWS-EKS/terraform/eks/mycluster-eks
 ```
 
 ## Como
