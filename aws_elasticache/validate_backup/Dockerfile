@@ -4,9 +4,9 @@ FROM alpine:3.12
 # Source:https://www.sandtable.com/reduce-docker-image-sizes-using-alpine/
 
 # Informations about image
-LABEL maintainer="Sensedia SA" \
+LABEL maintainer="E.F Cunha ME" \
       author="Cloud Architect Team" \
-      email="suporte@sensedia.com" \
+      email="efcunha@edsoncunha.eti.br" \
       description="Docker image to validate AWS Elasticache backup" \
       licence="copyright"
 
