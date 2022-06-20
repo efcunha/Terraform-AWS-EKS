@@ -1,12 +1,6 @@
 #!/bin/bash
 
 #---------------------------------------------------------------------------------------
-# Sensedia
-# Author: André Déo - andre.deo@sensedia.com
-# Date: April 2021
-#---------------------------------------------------------------------------------------
-
-#---------------------------------------------------------------------------------------
 # This script is responsible for:
 # - Validating that is possible to recreate the Elasticache cluster from the snapshot.
 # - Validate the percentage of keys equal from the snapshot to the current moment.
