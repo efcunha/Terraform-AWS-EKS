@@ -1,9 +1,6 @@
 #!/bin/bash
 
 #------------------------
-# Sensedia
-# Authors: Victor Ribeiro and Aecio Pires
-# Date: 13 jan 2020
 #
 # Objective: Install or upgrade Prometheus Operator in clusters Kubernetes
 #

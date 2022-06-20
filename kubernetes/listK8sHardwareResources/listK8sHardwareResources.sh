@@ -1,9 +1,6 @@
 #!/bin/bash
 
 #------------------------
-# Sensedia
-# Authors: Aecio Pires
-# Date: 04 ago 2020
 #
 # Objective: List k8s hardware resources (limits and requests)
 #
