@@ -1,8 +1,6 @@
 #!/bin/bash
 
 #------------------------
-# Authors: Aecio Pires
-# Date: 24 ago 2020
 #
 # Objective: Migrate Docker images between GCR repositories
 # Reference:
