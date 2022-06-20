@@ -12,7 +12,7 @@
 
 # Sobre
 
-Imagem Alpina com algumas ferramentas:
+Imagem Alpine com algumas ferramentas:
 
 - awscli
 - aws-iam-authenticator
