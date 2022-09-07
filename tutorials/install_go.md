@@ -9,7 +9,7 @@
 Execute os seguintes comandos para instalar o Go.
 
 ```bash
-VERSION=1.18.3
+VERSION=1.19
 
 mkdir -p $HOME/go/bin
 

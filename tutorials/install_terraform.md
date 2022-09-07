@@ -12,8 +12,8 @@ Execute os seguintes comandos para instalar o ``terraform``.
 ```bash
 sudo su
 
-TERRAFORM_ZIP_FILE=terraform_1.2.2_linux_amd64.zip
-TERRAFORM_BASE_URL=https://releases.hashicorp.com/terraform/1.2.2
+TERRAFORM_ZIP_FILE=terraform_1.2.8_linux_amd64.zip
+TERRAFORM_BASE_URL=https://releases.hashicorp.com/terraform/1.2.8
 
 function install_terraform {
 if [ -z $(which terraform) ]; then
