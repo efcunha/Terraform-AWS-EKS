@@ -14,7 +14,7 @@ variable "region" {
 # General
 variable "tags" {
   description = "Maps of tags."
-  type        = map
+  type        = map(any)
   default     = {}
 }
 
@@ -38,7 +38,7 @@ variable "bucket_name" {
   description = "Bucket name for storage Terraform tfstate remote."
 }
 
-variable "dynamodb_table_name"{
+variable "dynamodb_table_name" {
   description = "DynamoDB Table name for lock Terraform tfstate remote."
 }
 
